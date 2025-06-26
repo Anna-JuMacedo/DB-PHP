@@ -52,18 +52,17 @@
     </div>
     <script>
         const mensagemDoPHP = "<?php echo $messagem; ?>";
-        const cadastroFoiSucesso = <?php echo json_encode($cadastroSucesso); ?>;
+const cadastroFoiSucesso = <?php echo json_encode($cadastroSucesso); ?>;
 
-        if (mensagemDoPHP) {
-            alert(mensagemDoPHP);
+if (mensagemDoPHP) {
+    alert(mensagemDoPHP);
 
-            if (cadastroFoiSucesso) {
-                document.getElementById('name').value = '';
-                document.getElementById('idade').value = '';
-
-                document.getElementById('nome').focus();
-            }
-        }
+    if (cadastroFoiSucesso) {
+        document.getElementById('nome').value = '';
+        document.getElementById('idade').value = '';
+        document.getElementById('nome').focus();
+    }
+}
     </script>
 </body>
 

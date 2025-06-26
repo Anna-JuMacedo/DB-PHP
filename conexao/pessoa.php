@@ -12,27 +12,28 @@ class Pessoa {
     }
 
     public function criar() {
-        $query = "INSERT INTO " . $this->nome_tabela . "SET nome=:nome, idade=:idade";
+        $query = "INSERT INTO " . $this->nome_tabela . " SET nome=:nome, idade=:idade";
         $stmt = $this->conexao->prepare($query);
-
+    
         $this->nome = htmlspecialchars(strip_tags($this->nome));
         $this->idade = htmlspecialchars(strip_tags($this->idade));
-
+    
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":idade", $this->idade);
-
+    
         if ($stmt->execute()) {
             return true;
         }
         return false;
+    }    
     }
     
     public function ler() {
-        $query = "SELECT id, nome, idade FROM " . $this->nome_tabela . "ORDER BY nome ASC";
+        $query = "SELECT id, nome, idade FROM " . $this->nome_tabela . " ORDER BY nome ASC";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute();
         return $stmt;
-
     }
-}
+    
+
 ?>
